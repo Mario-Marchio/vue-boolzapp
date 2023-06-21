@@ -1,0 +1,15 @@
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-image: linear-gradient(#009688, #009688),
+                      linear-gradient(#DCDBD2, #DCDBD2);
+    background-position: top,
+                         calc(15% + 1px);
+    background-size: 100% 15%,
+                     100% calc(85% - 1px);
+    background-repeat: no-repeat;
+  }
