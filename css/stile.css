@@ -13,3 +13,16 @@ html, body {
                      100% calc(85% - 1px);
     background-repeat: no-repeat;
   }
+  .sidebar {
+    flex-basis: 600px;
+    background-color: white;
+    color: lightgray;
+    height: 1200px;
+}
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 1400px;
+    background-color: white;;
+    height:1200px 
+}
