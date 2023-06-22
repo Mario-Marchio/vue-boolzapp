@@ -66,7 +66,7 @@
                 <!-- chat  -->
                 <div id="right-main" class="col-8 p-0 h-100 bgc-grey d-flex flex-column">
                     <header class="flex-shrink-0 h-70 d-flex justify-content-between">
-                        <div class="pic" >
+                        <div class="pic" v-if="activeContact" >
                             <figure>
                                 <img src="`img/avatar${activeContact.avatar}.jpg`" >
                             </figure>
