@@ -66,12 +66,12 @@
                 <!-- chat  -->
                 <div id="right-main" class="col-8 p-0 h-100 bgc-grey d-flex flex-column">
                     <header class="flex-shrink-0 h-70 d-flex justify-content-between">
-                        <div class="pic">
+                        <div class="pic" >
                             <figure>
-                                <img src="/img/avatar_2.jpg" >
+                                <img src="`img/avatar${activeContact.avatar}.jpg`" >
                             </figure>
                             <div class="h6 pic-text">
-                                <div>avatar 2</div>
+                                <div>{{activeContact.name}}</div>
                                 <div class="mb-0 fw-light">
                                     <span>ultimo accesso oggi alle</span>
                                 </div>
@@ -86,13 +86,14 @@
                     <!-- messaggi  -->
                     <div class="flex-grow-1 overflow-auto bg-img" v-if="activeContact" >
                         <ul class="px-3">
-                            <li class="d-flex p-3" v-for="message in activeContact.messages" :class="message.status">
+                            <li class="d-flex p-3 " v-for="message in activeContact.messages" :class="message.status">
                                 <div class="message p-2 rounded-3">
                                     <p>{{message.message}}</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
+                    <!-- scrittura messaggi -->
                     <footer class="flex-shrink-0 h-70 container-fluid">
                         <div class="row h-100 align-items-center">
                             <div class="col-1 d-flex justify-content-center">
