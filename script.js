@@ -1,7 +1,7 @@
 console.log(`vue ok`);
 const { createApp } = Vue;
 
-const app = createApp({
+const app = Vue.createApp({
     data(){
         return{
             user: {
@@ -205,3 +205,5 @@ const app = createApp({
             
     }
 })
+
+app.mount(`#root`);
