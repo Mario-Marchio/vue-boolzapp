@@ -198,14 +198,20 @@ const app = Vue.createApp({
                       message: 'OK!!',
                       status: 'received'
                     }
-                  ],
-                  newMessage: ``,
+                  ]
                 }
-              ]
-            
+            ],
+            newMessage: ``,
+            searchPeople: ``
         }
     },
-    
+    computed: {
+        filteredContacts() {
+          return this.contacts.filter(contact => {
+            return contact.name.toLowerCase().includes(this.searchPeople.toLowerCase());
+          });
+        }
+      },    
     methods: {
         sendMessage() {
             if (this.newMessage.trim() !== '') {
@@ -218,7 +224,7 @@ const app = Vue.createApp({
                 
                 this.activeContact.messages.push(newMessageObject);
                 this.newMessage = '';
-                
+
                 // timer per l invio messaggio di risposta 
                 setTimeout(() => {
                     const replyMessage = {
@@ -231,7 +237,7 @@ const app = Vue.createApp({
                   }, 1000);
             }
         }
-    } ,
+    } 
 })
 
 app.mount(`#root`);

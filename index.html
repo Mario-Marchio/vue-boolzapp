@@ -46,12 +46,12 @@
                     <!-- ricerca -->
                     <div class="p-2 flex-shrink-0 search-info">
                         <i class="fa-solid fa-search text-muted position-middle"></i>
-                        <input class=" w-100 input-form " type="text" placeholder="cerca contatto" aria-label="Search">
+                        <input class=" w-100 input-form " type="text" placeholder="cerca contatto" aria-label="Search" v-model="searchPeople">
                     </div>   
                     <!-- contatti-->
                     <div class="flex-grow-1 overflow-auto bgc-white">
                         <ul class="m-0 p-0">
-                            <li v-for="contact in contacts" class="pic" @click="activeContact = contact">
+                            <li v-for="contact in filteredContacts" class="pic" @click="activeContact = contact">
                                 <figure>
                                     <img :src="`img/avatar${contact.avatar}.jpg`"> 
                                 </figure>
