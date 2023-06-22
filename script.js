@@ -218,6 +218,17 @@ const app = Vue.createApp({
                 
                 this.activeContact.messages.push(newMessageObject);
                 this.newMessage = '';
+                
+                // timer per l invio messaggio di risposta 
+                setTimeout(() => {
+                    const replyMessage = {
+                      id: this.activeContact.messages.length + 1,
+                      date: new Date().toLocaleString(),
+                      message: 'Ok',
+                      status: 'received'
+                    };
+                    this.activeContact.messages.push(replyMessage);
+                  }, 1000);
             }
         }
     } ,
