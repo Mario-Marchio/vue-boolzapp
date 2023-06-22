@@ -4,6 +4,7 @@ const { createApp } = Vue;
 const app = Vue.createApp({
     data(){
         return{
+            activeContact: null,
             user: {
                 name: 'Nome Utente',
                 avatar: '_io'

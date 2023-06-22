@@ -51,7 +51,7 @@
                     <!-- contatti-->
                     <div class="flex-grow-1 overflow-auto bgc-white">
                         <ul class="m-0 p-0">
-                            <li v-for="contact in contacts" class="pic" >
+                            <li v-for="contact in contacts" class="pic" @click="activeContact = contact">
                                 <figure>
                                     <img :src="`img/avatar${contact.avatar}.jpg`"> 
                                 </figure>
@@ -84,16 +84,11 @@
                         </div>
                     </header>
                     <!-- messaggi  -->
-                    <div class="flex-grow-1 overflow-auto bg-img">
+                    <div class="flex-grow-1 overflow-auto bg-img" v-if="activeContact" >
                         <ul class="px-3">
                             <li class="d-flex p-3 sent">
                                 <div class="message p-2 rounded-3">
-                                    <p>ciao sono mario</p>
-                                </div>
-                            </li>
-                            <li class="d-flex p-3 recieved">
-                                <div class="message p-2 rounded-3">
-                                    <p>ciao sono luca</p>
+                                    <p>ciao sono mariooooo</p>
                                 </div>
                             </li>
                         </ul>
