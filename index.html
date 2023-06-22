@@ -1,20 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css' integrity='sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==' crossorigin='anonymous'/>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
-    <link rel="stylesheet" href="css/stile.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css' integrity='sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==' crossorigin='anonymous'/>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'/>
+        <link rel="stylesheet" href="css/stile.css">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class=" d-flex justify-content-center pt-5 ">
-        <div class="sidebar"></div>
-        <div class="main-container"></div>
+    <div id="root" class=" h-100 d-flex align-items-center justify-content-center ">
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-4 p-0 h-100 bgc-white d-flex, flex-column ">
+                    <!-- utente -->
+                    <header class="flex-shrink-0 h-70 d-flex justify-content-between">
+                        <div class="pic">
+                            <figure>
+                                <img :src="`img/avatar${user.avatar}.jpg`">
+                            </figure>
+                            <div class="h6 pic-text">{{user.name}}</div>
+                        </div>
+                        <div class="d-flex justify-content-around align-items-center w-25 text-muted ">
+                            <i class="fa-solid fa-circle-notch " style="color: #808189;"></i>
+                            <i class="fa-solid fa-message" style="color: #808189;"></i>
+                            <i class="fa-solid fa-ellipsis-vertical " style="color: #808189;"></i>
+                        </div>
+                    </header>
+                    <!-- notifiche -->
+                    <div class="bgc-l-blue flex-shrink-0 h-70">  
+                        <div class="pic">
+                            <div class="pic-icon">
+                                <i class="fa-solid fa-bell-slash fs-4 align-self-center" style="color: #8EDAFC;"></i>
+                            </div>
+                            <div class="pic-text">
+                                <div>ricevi notifiche di nuovi messaggi</div>
+                                <div class="fs-6 text-decoration-underline">
+                                    <span>attiva le notifiche desktop</span>
+                                </div>
+                                
+                            </div>
+                        </div>                    
+                    </div>
+                    <!-- ricerca -->
+                    <div class="p-3 flex-shrink-0 search-info">
+                        <i class="fa-solid fa-search text-muted position-middle"></i>
+                        <input class=" w-100 input-form " type="text" placeholder="cerca contatto" aria-label="Search">
+                    </div>   
+                    <!-- contatti-->
+                    <div class="flex-grow-1 overflow-auto bgc-white">
+                        <ul class="m-0 p-0">
+                            <li v-for="contact in contacts" class="pic" >
+                                <figure>
+                                    <img :src="`img/avatar${contact.avatar}.jpg`"> 
+                                </figure>
+                                <div class="h6 pic-text">
+                                    <div>{{contact.name}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>       
+                </div>
+
+                <!-- chat  -->
+                <div id="right-main" class="col-8 p-0 h-100 bgc-grey d-flex flex-column">
+                    <header class="flex-shrink-0 h-70 d-flex justify-content-between">
+                        <div class="pic">
+                            <figure>
+                                <img src="/img/avatar_2.jpg" >
+                            </figure>
+                            <div class="h6 pic-text">
+                                <div>avatar 2</div>
+                                <div class="mb-0 fw-light">
+                                    <span>ultimo accesso oggi alle</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="me-3 d-flex text-muted align-items-center justify-content-around">
+                            <i class="fa solid fa-search ms-3"></i>
+                            <i class="fa solid fa-paperclip ms-3"></i>
+                            <i class="fa solid fa-search ms-3"></i>
+                        </div>
+                    </header>
+                    <!-- messaggi  -->
+                    <div class="flex-grow-1 overflow-auto bg-img">
+                        <ul class="px-3">
+                            <li class="d-flex p-3 sent">
+                                <div class="message p-2 rounded-3">
+                                    <p>ciao sono mario</p>
+                                </div>
+                            </li>
+                            <li class="d-flex p-3 recieved">
+                                <div class="message p-2 rounded-3">
+                                    <p>ciao sono luca</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <footer class="flex-shrink-0 h-70 container-fluid">
+                        <div class="row h-100 align-items-center">
+                            <div class="col-1 d-flex justify-content-center">
+                                <i class="fa-regular fa-smile fa-2x text-muted"></i>
+                            </div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" placeholder="scrivi un messaggio">
+                            </div>
+                            <div class="col-1 d-flex justify-content-center">
+                                <i class="fa-solid fa-microphone fa-2x text-muted"></i>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
     </div>
-   
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="script.js"></script>
+        
+        <script src="script.js"></script>
 </body>
 </html>
