@@ -68,7 +68,7 @@
                     <header class="flex-shrink-0 h-70 d-flex justify-content-between">
                         <div class="pic" v-if="activeContact" >
                             <figure>
-                                <img src="`img/avatar${activeContact.avatar}.jpg`" >
+                                <img :src="`img/avatar${activeContact.avatar}.jpg`" >
                             </figure>
                             <div class="h6 pic-text">
                                 <div>{{activeContact.name}}</div>
