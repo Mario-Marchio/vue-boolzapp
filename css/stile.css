@@ -71,14 +71,14 @@ img{
 .sent{
     justify-content: flex-end;
 }
-.recieved{
+.received{
     justify-content: flex-start;
 }
 .sent .message{
 
     background-color: #D5F9BA;
 }
-.recieved .message{
+.received .message{
 
     background-color: #fff;
 }
