@@ -199,12 +199,28 @@ const app = Vue.createApp({
                       status: 'received'
                     }
                   ],
+                  newMessage: ``,
                 }
               ]
             
         }
-            
-    }
+    },
+    
+    methods: {
+        sendMessage() {
+            if (this.newMessage.trim() !== '') {
+                const newMessageObject = {
+                    id: this.activeContact.messages.length + 1,
+                    date: new Date().toLocaleString(),
+                    message: this.newMessage,
+                    status: 'sent'
+                };
+                
+                this.activeContact.messages.push(newMessageObject);
+                this.newMessage = '';
+            }
+        }
+    } ,
 })
 
 app.mount(`#root`);

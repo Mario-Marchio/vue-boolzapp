@@ -44,7 +44,7 @@
                         </div>                    
                     </div>
                     <!-- ricerca -->
-                    <div class="p-3 flex-shrink-0 search-info">
+                    <div class="p-2 flex-shrink-0 search-info">
                         <i class="fa-solid fa-search text-muted position-middle"></i>
                         <input class=" w-100 input-form " type="text" placeholder="cerca contatto" aria-label="Search">
                     </div>   
@@ -100,7 +100,7 @@
                                 <i class="fa-regular fa-smile fa-2x text-muted"></i>
                             </div>
                             <div class="col-10">
-                                <input type="text" class="form-control" placeholder="scrivi un messaggio">
+                                <input type="text" class="form-control" placeholder="scrivi un messaggio" v-model="newMessage" @keydown.enter="sendMessage">
                             </div>
                             <div class="col-1 d-flex justify-content-center">
                                 <i class="fa-solid fa-microphone fa-2x text-muted"></i>
